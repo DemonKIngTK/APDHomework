@@ -56,13 +56,13 @@ namespace HomeWork
         }
         public void AddPlaylist(string filename)
         {
-            textBox1.Text = filename;
+            axVLCPlugin21.playlist.add(new Uri(filename).AbsoluteUri);
 
         }
 
         private void ToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            axVLCPlugin21.playlist.add(new Uri(textBox1.Text).AbsoluteUri);
+            
             int d = axVLCPlugin21.playlist.items.count;
             MessageBox.Show("TestPlay"+d);
 

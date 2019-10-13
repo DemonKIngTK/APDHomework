@@ -13,7 +13,7 @@ namespace HomeWork
     public partial class Form2 : Form
     {
 
-        private string str;
+        private string text;
         private string file;
         public Form2()
         {
@@ -28,6 +28,7 @@ namespace HomeWork
         private void Button1_Click(object sender, EventArgs e)
         {
             Form1 form = new Form1();
+            setText(textBox1.Text);
             form.chageText();
 
         }
@@ -36,13 +37,13 @@ namespace HomeWork
         {
             this.Visible = false;
         }
-        private void setText(String str)
+        public void setText(String str)
         {
-            this.str = str;
+            text = str;
         }
         public String getText()
         {
-            return str;
+            return text;
         }
 
         private void Button2_Click(object sender, EventArgs e)
