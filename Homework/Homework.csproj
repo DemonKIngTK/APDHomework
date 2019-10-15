@@ -121,6 +121,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\AxAXVLC.AxVLCPlugin2.datasource" />
     <None Include="Properties\DataSources\Table_2.datasource" />
+    <None Include="Properties\DataSources\text.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

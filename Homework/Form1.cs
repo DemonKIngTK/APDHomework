@@ -37,13 +37,12 @@ namespace HomeWork
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
             timer1.Start();
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-
+            label3.Text = "ก้องหัวดอ";
             label3.Location = new Point(label3.Location.X - 10, label3.Location.Y);
             label1.Text = DateTime.Now.ToString("dd/MM/yyyy");
             label2.Text = DateTime.Now.ToString("hh:mm:ss tt");
@@ -51,8 +50,6 @@ namespace HomeWork
             {
                 label3.Location = new Point(this.Width + label3.Width, label3.Location.Y);
             }
-
-
         }
         public void AddPlaylist()
         {
@@ -80,13 +77,6 @@ namespace HomeWork
         {
             axVLCPlugin21.playlist.togglePause();
         }
-        public void chageText()
-        {
-            Form2 form2 = new Form2();
-            label3.Text = form2.getText();
-            MessageBox.Show(label3.Text);
-        }
-
         private void NextToolStripMenuItem_Click(object sender, EventArgs e)
         {
             axVLCPlugin21.playlist.next();
