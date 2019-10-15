@@ -67,11 +67,14 @@ namespace HomeWork
         private void ToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             var result = (from s in context.Table_2 select s.name);
+            for (int i = 0;i<=axVLCPlugin21.playlist.items.count;i++)
+            {
+                axVLCPlugin21.playlist.items.remove(i);
+            }
             foreach (string i in result)
             {
                 axVLCPlugin21.playlist.add(new Uri(i).AbsoluteUri);
             }
-            MessageBox.Show("" + axVLCPlugin21.playlist.items.count);
             axVLCPlugin21.volume = 60;
             axVLCPlugin21.playlist.play();
         }
