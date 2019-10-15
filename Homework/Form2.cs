@@ -12,8 +12,8 @@ namespace HomeWork
 {
     public partial class Form2 : Form
     {
-
-        private string text;
+        apd621_60011212035Entities context = new apd621_60011212035Entities();
+        private string texts;
         private string file;
         public Form2()
         {
@@ -22,7 +22,7 @@ namespace HomeWork
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            
+            table2BindingSource.DataSource = context.Table_2.ToList();
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -35,15 +35,15 @@ namespace HomeWork
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Hide();
         }
         public void setText(String str)
         {
-            text = str;
+            texts = str;
         }
         public String getText()
         {
-            return text;
+            return texts;
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -51,15 +51,13 @@ namespace HomeWork
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 textBox2.Text = openFileDialog1.FileName;
-                listBox1.Items.Add(openFileDialog1.FileName);
             }
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
-            form1.AddPlaylist(textBox2.Text);
-            MessageBox.Show("Test");
+            
         }
 
     }
