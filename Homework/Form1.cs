@@ -12,12 +12,12 @@ namespace HomeWork
 {
     public partial class Form1 : Form
     {
-        apd621_60011212035Entities context = new apd621_60011212035Entities();
+        apd621_60011212035Entities1 context = new apd621_60011212035Entities1();
         public Form1()
         {
             InitializeComponent();
-            
         }
+ 
 
         private void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -37,12 +37,24 @@ namespace HomeWork
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           
             timer1.Start();
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            label3.Text = "ก้องหัวดอ";
+            List<string> text = new List<string>();
+            var result = from s in context.textShows
+                         orderby s.id
+                         select s.text;
+            var time = from s in context.textShows
+                         orderby s.id
+                         select s.time;
+            foreach (string i in result)
+            {
+                text.Add(i);
+            }
+            label3.Text = text[0];
             label3.Location = new Point(label3.Location.X - 10, label3.Location.Y);
             label1.Text = DateTime.Now.ToString("dd/MM/yyyy");
             label2.Text = DateTime.Now.ToString("hh:mm:ss tt");

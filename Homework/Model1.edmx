@@ -10,19 +10,19 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="200" />
         </EntityType>
-        <EntityType Name="text">
+        <EntityType Name="textShow">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="text" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="time" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="time" Type="int" Nullable="false" />
+          <Property Name="text" Type="varchar" MaxLength="120" Nullable="false" />
         </EntityType>
         <EntityContainer Name="apd621_60011212035ModelStoreContainer">
           <EntitySet Name="Table_2" EntityType="Self.Table_2" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="text" EntityType="Self.text" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="textShow" EntityType="Self.textShow" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -34,26 +34,26 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="text">
+        <EntityType Name="textShow">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="text1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="time" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="time" Type="Int32" Nullable="false" />
+          <Property Name="text" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="apd621_60011212035Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="apd621_60011212035Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Table_2" EntityType="Self.Table_2" />
-          <EntitySet Name="texts" EntityType="Self.text" />
+          <EntitySet Name="textShows" EntityType="Self.textShow" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="apd621_60011212035ModelStoreContainer" CdmEntityContainer="apd621_60011212035Entities">
+        <EntityContainerMapping StorageEntityContainer="apd621_60011212035ModelStoreContainer" CdmEntityContainer="apd621_60011212035Entities1">
           <EntitySetMapping Name="Table_2">
             <EntityTypeMapping TypeName="apd621_60011212035Model.Table_2">
               <MappingFragment StoreEntitySet="Table_2">
@@ -62,12 +62,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="texts">
-            <EntityTypeMapping TypeName="apd621_60011212035Model.text">
-              <MappingFragment StoreEntitySet="text">
+          <EntitySetMapping Name="textShows">
+            <EntityTypeMapping TypeName="apd621_60011212035Model.textShow">
+              <MappingFragment StoreEntitySet="textShow">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="text1" ColumnName="text" />
                 <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="text" ColumnName="text" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

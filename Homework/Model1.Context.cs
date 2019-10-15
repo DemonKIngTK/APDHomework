@@ -13,10 +13,10 @@ namespace HomeWork
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class apd621_60011212035Entities : DbContext
+    public partial class apd621_60011212035Entities1 : DbContext
     {
-        public apd621_60011212035Entities()
-            : base("name=apd621_60011212035Entities")
+        public apd621_60011212035Entities1()
+            : base("name=apd621_60011212035Entities1")
         {
         }
     
@@ -26,6 +26,6 @@ namespace HomeWork
         }
     
         public virtual DbSet<Table_2> Table_2 { get; set; }
-        public virtual DbSet<text> texts { get; set; }
+        public virtual DbSet<textShow> textShows { get; set; }
     }
 }

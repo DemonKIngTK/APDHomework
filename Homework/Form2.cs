@@ -12,7 +12,7 @@ namespace HomeWork
 {
     public partial class Form2 : Form
     {
-        apd621_60011212035Entities context = new apd621_60011212035Entities();
+        apd621_60011212035Entities1 context = new apd621_60011212035Entities1();
         public Form2()
         {
             InitializeComponent();
@@ -21,13 +21,21 @@ namespace HomeWork
         private void Form2_Load(object sender, EventArgs e)
         {
             table2BindingSource.DataSource = context.Table_2.ToList();
-            textBindingSource.DataSource = context.texts.ToList();
+            textShowBindingSource.DataSource = context.textShows.ToList();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            text text = new text();
-            text.text1 = textBox1.Text;
+            textShow textShow = new textShow();
+            textShow.text = textBox1.Text;
+            textShow.time = int.Parse(textBox3.Text);
+
+            textShowBindingSource.AddNew();
+   
+            context.textShows.Add(textShow);
+            int change = context.SaveChanges();
+            MessageBox.Show("Change " + change + " records");
+            textShowBindingSource.DataSource = context.textShows.ToList();
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -67,6 +75,15 @@ namespace HomeWork
             context.Table_2.Remove(toDel);
             context.SaveChanges();
             table2BindingSource.DataSource = context.Table_2.ToList();
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(dataGridView2.SelectedCells[0].Value.ToString());
+            var toDel = context.textShows.Where(d => d.id == id).First();
+            context.textShows.Remove(toDel);
+            context.SaveChanges();
+            textShowBindingSource.DataSource = context.textShows.ToList();
         }
     }
 }

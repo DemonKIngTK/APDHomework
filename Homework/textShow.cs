@@ -12,10 +12,10 @@ namespace HomeWork
     using System;
     using System.Collections.Generic;
     
-    public partial class text
+    public partial class textShow
     {
         public int id { get; set; }
-        public string text1 { get; set; }
         public int time { get; set; }
+        public string text { get; set; }
     }
 }
